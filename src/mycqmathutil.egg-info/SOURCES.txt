@@ -1,9 +1,0 @@
-LICENSE
-README.md
-pyproject.toml
-src/__init__.py
-src/mycqmathutil.py
-src/mycqmathutil.egg-info/PKG-INFO
-src/mycqmathutil.egg-info/SOURCES.txt
-src/mycqmathutil.egg-info/dependency_links.txt
-src/mycqmathutil.egg-info/top_level.txt
