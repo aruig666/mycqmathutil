@@ -46,6 +46,42 @@ def solve_quadratic_equation(a, b, c):
         return None
 
 
+def get_gear_tooth_points_and_radius_by_shape(shape, diameter, pitch_diameter, tooth_depth):
+    r0 = diameter / 2 - tooth_depth
+    x0 = 0
+    y0 = 0
+
+    r1 = 0.15
+    r2 = 1.975
+    r3 = 0.28
+
+    x2 = 0.975
+    y2 = math.sqrt((pitch_diameter / 2) ** 2 - x2 ** 2)
+    n1 = ((diameter / 2 - tooth_depth + r1) ** 2 + x2 ** 2 + y2 ** 2 - (r2 - r1) ** 2) / (2 * x2)
+    _y1 = solve_quadratic_equation((y2 / x2) ** 2 + 1, -2 * n1 * y2 / x2,
+                                   n1 ** 2 - (diameter / 2 - tooth_depth + r1) ** 2)
+    y1 = None
+    for i in range(len(_y1)):
+        _x1 = -y2 / x2 * _y1[i] + n1
+        if _x1 < 0:
+            y1 = _y1[i]
+    x1 = -y2 / x2 * y1 + n1
+    n3 = ((diameter / 2 - r3) ** 2 + x2 ** 2 + y2 ** 2 - (r2 + r3) ** 2) / (2 * x2)
+    _y3 = solve_quadratic_equation((y2 / x2) ** 2 + 1, -2 * n3 * y2 / x2,
+                                   n3 ** 2 - (diameter / 2 - r3) ** 2)
+    y3 = None
+    for i in range(len(_y3)):
+        _x3 = -y2 / x2 * _y3[i] + n3
+        if _x3 < 0:
+            y3 = _y3[i]
+    x3 = -y2 / x2 * y3 + n3
+    point1 = get_ptoc_tangent_point(x1, y1, x0, y0, r0)
+    point2 = get_ptoc_tangent_point(x1, y1, x2, y2, r2)
+    point3 = get_ptoc_tangent_point(x3, y3, x2, y2, r2)
+    point4 = get_ptoc_tangent_point(x3, y3, x0, y0, r0 + tooth_depth)
+    return point1, r0, point2, r1, point3, r2, point4, r3
+
+
 def get_ptoc_tangent_point(tx, ty, ox, oy, r):
     """
     求目标点(tx,ty)对圆(ox,oy)作相切圆后的切点。目标点如在圆内，作内切圆；如在圆外，作外切圆。

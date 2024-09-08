@@ -16,6 +16,6 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 [project.urls]
-"Homepage" = ""
+"Homepage" = "https://github.com/aruig666/mycqmathutil"
 #"Homepage" = "https://github.com/pypa/sampleproject"
 #"Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
