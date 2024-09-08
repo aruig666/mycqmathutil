@@ -1,1 +1,1 @@
-from .mycqmathutil import *
+from .myswparameter import *

@@ -2,8 +2,8 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "mycqmathutil"
-version = "1.0.0"
+name = "myswparameter"
+version = "0.0.1"
 authors = [
     { name = "my Author", email = "author@example.com" },
 ]

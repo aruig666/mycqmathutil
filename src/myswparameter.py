@@ -9,7 +9,7 @@ def get_gear_pitch_diameter_by_shape(shape):
     if shape == "S3M":
         return 0.76
     else:
-        return 0.0
+        return 0.76
 
 
 def get_gear_tooth_depth_by_shape(shape):
@@ -20,7 +20,7 @@ def get_gear_tooth_depth_by_shape(shape):
     if shape == "S3M":
         return 1.11
     else:
-        return 0.0
+        return 1.11
 
 
 def solve_quadratic_equation(a, b, c):
